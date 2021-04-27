@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<body background = "{{ url_for('static', filename='images/duePage.jpg')}}" opacity= 0.2></body>
+<h1>Pay due</h1>
+
+  {% from "includes/_formhelpers.html" import render_field %}
+
+  <form method="POST" action="">
+    <div class="form-group">
+      {{render_field(form.customerUsername, class_="form-control")}}
+    </div>
+    <div>
+      <!-- Click here to know customer's pending amount<br> -->
+      <input type="submit" class="btn btn-primary"  value="Calculate due">
+      <br>
+      <br>
+      <strong>Customer has a pending of ${{data.due}}</strong> <br>
+      <br>
+  
+      Enter the amount paid by the customer
+      {{render_field(form.amountpaid, class_="form-control")}}
+      <br>
+      <input type="submit" class="btn btn-primary"  value="Pay due">
+    </div>
+  </form>
+  <div>
+  <strong>customer paid a due of ${{newdue}} </strong>
+  </div>
+  
+{% endblock %}

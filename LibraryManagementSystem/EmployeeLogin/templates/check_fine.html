@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class= "bg" >
+    <h1>Return Books</h1>
+
+  <div class="container">
+
+  <hr>
+
+    <div class="row">
+      <div class="col-12 text-center">
+        <a class="btn btn-success " href="/issue_books"> Issue books </a>
+        <a class="btn btn-success " href="/return_books"> Return books </a>
+        <a class="btn btn-success " href="/pay_due"> Pay due </a>
+      </div>
+    </div>
+  <table class="table table-hover table-stripped">
+    <tr>
+      <th>customer Username</th>
+      <th>due</th>
+    </tr>
+<!-- due for each - button -->
+    {% for book in books %}
+      <tr>
+        <td>{{book.customerUsername}}</td>
+        <td>{{book.due}}</td>
+      </tr>
+    {% endfor %}
+
+  </table>
+  </div>
+</div>
+{% endblock %}
